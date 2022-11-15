@@ -33,7 +33,7 @@ return new class extends Migration
             $table->enum('employee_marital_status', ['single', 'married', 'widow', 'widower'])->nullable();
             $table->foreignUuid('department_id');
             $table->foreignUuid('position_id');
-            $table->timestamp('employee_join_date');
+            $table->timestamp('employee_join_date')->nullable();
             $table->timestamp('employee_end_date')->nullable();
             $table->foreignUuid('status_id');
             $table->string('employee_path_img', 255)->nullable();

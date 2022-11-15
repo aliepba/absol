@@ -8,6 +8,7 @@ use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\Password\Generate;
 use App\Http\Controllers\User\Password\PasswordController;
 use App\Http\Controllers\User\Password\Reset;
+use App\Http\Controllers\ZoomController;
 use Laravolt\Platform\Enums\Permission;
 
 Route::redirect('/', 'auth/login');
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'verified'])
                     Route::resource('password', PasswordController::class)->only('edit');
                     Route::post('password/{id}/reset', Reset::class)->name('password.reset');
                     Route::post('password/{id}/generate', Generate::class)->name('password.generate');
+                    Route::get('/zoom', [ZoomController::class, 'index']);
                 }
             );
         }
